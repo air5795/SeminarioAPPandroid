@@ -34,8 +34,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="0dp"
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -86,11 +87,17 @@
 
                 <CheckBox
                     android:id="@+id/checkbox"
-                    android:layout_width="match_parent"
+                    android:layout_width="291dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="30dp"
                     android:layout_marginTop="20dp"
-                    android:text="Recordar" />
+                    android:buttonTint="@android:color/black"
+                    android:checked="true"
+                    android:clickable="true"
+                    android:cursorVisible="true"
+                    android:text="Recordar"
+                    android:textColor="@android:color/black"
+                    android:textColorLink="@android:color/black" />
 
                 <ImageButton
                     android:id="@+id/signin"

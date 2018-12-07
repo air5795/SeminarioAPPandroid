@@ -27,14 +27,15 @@
                 android:textColor="#ffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
+
             <TextView
-                android:layout_marginTop="6dp"
-                android:layout_below="@id/txtdashboard"
-                android:text="Usuario Blade"
-                android:textSize="14sp"
-                android:textColor="#52baff"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtdashboard"
+                android:layout_marginTop="6dp"
+                android:text="Usuario "
+                android:textColor="#52baff"
+                android:textSize="14sp" />
             
             <ImageView
                 android:layout_alignParentRight="true"

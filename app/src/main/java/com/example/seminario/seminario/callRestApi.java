@@ -2,6 +2,7 @@ package com.example.seminario.seminario;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -9,9 +10,15 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.UnsupportedEncodingException;
+
 public class callRestApi {
+    private String TAG = "callRestApi";
+
     inteResults mResultCallback = null;
     Context mContext;
 
@@ -68,6 +75,21 @@ public class callRestApi {
 
         }catch(Exception e){
 
+        }
+    }
+
+    public void parseVolleyError(VolleyError error) {
+        try {
+            String responseBody = new String(error.networkResponse.data, "utf-8");
+            JSONObject data = new JSONObject(responseBody);
+            //JSONArray errors = data.getJSONArray("message");
+            //JSONObject jsonMessage = errors.getJSONObject(0);
+            String message = data.getString("message");
+            Toast.makeText(mContext, message, Toast.LENGTH_LONG).show();
+        } catch (JSONException e) {
+            Log.d(TAG, "error " + e);
+        } catch (UnsupportedEncodingException e) {
+            Log.d(TAG, "error " + e);
         }
     }
 }

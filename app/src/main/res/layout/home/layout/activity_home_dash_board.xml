@@ -22,11 +22,11 @@
 
             <TextView
                 android:id="@+id/txtdashboard"
-                android:text="Bienvenido"
-                android:textSize="22sp"
-                android:textColor="#ffffff"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Bienvenido al sistema"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
             <TextView
                 android:layout_marginTop="6dp"
                 android:layout_below="@id/txtdashboard"

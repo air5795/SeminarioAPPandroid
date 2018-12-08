@@ -27,15 +27,14 @@
                 android:textColor="#ffffff"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
-
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/txtdashboard"
                 android:layout_marginTop="6dp"
-                android:text="Usuario "
+                android:layout_below="@id/txtdashboard"
+                android:text="Usuario usuario"
+                android:textSize="14sp"
                 android:textColor="#52baff"
-                android:textSize="14sp" />
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
             
             <ImageView
                 android:layout_alignParentRight="true"
@@ -215,6 +214,7 @@
             </android.support.v7.widget.CardView>
 
             <android.support.v7.widget.CardView
+                android:id="@+id/logout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_columnWeight="1"
@@ -231,7 +231,7 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:src="@drawable/date"
+                        android:src="@drawable/logout"
                         android:layout_width="80dp"
                         android:layout_height="80dp" />
 
@@ -239,7 +239,7 @@
                         android:layout_marginTop="12dp"
                         android:textColor="#6f6f6f"
                         android:textSize="18sp"
-                        android:text="Titulo"
+                        android:text="Cerrar Sesiom"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content" />
                 </LinearLayout>

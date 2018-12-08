@@ -24,8 +24,8 @@ public class Session {
         prefs.edit().putBoolean("auth", auth).commit();
     }
     //public String getusename() {
-    //String usename = prefs.getString("usename","");
-    //return usename;
+        //String usename = prefs.getString("usename","");
+        //return usename;
     //}
 
     public String gettoken() {
@@ -38,3 +38,4 @@ public class Session {
         return auth;
     }
 }
+

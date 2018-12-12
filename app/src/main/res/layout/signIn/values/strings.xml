@@ -1,1 +1,3 @@
-<resources></resources>
+<resources>
+    <string name="singin">signin</string>
+</resources>

@@ -21,7 +21,13 @@ public class HomeDashBoard extends AppCompatActivity implements View.OnClickList
             startActivity(new Intent(this,signIn.class));
         }
 
+        findViewById(R.id.createRestaurant).setOnClickListener(this);
+        findViewById(R.id.myRestaurants).setOnClickListener(this);
         findViewById(R.id.logout).setOnClickListener(this);
+        findViewById(R.id.allrestaurants).setOnClickListener(this);
+
+        findViewById(R.id.uploadPhoto).setOnClickListener(this);
+
     }
 
     public void logout(){
@@ -35,9 +41,25 @@ public class HomeDashBoard extends AppCompatActivity implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()){
+            case R.id.createRestaurant:
+                Toast.makeText(HomeDashBoard.this, "Formulario crear Restaurante", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this,createRestaurant.class));
+                break;
+            case R.id.myRestaurants:
+                Toast.makeText(HomeDashBoard.this, "Mis Restaurantes", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this,allMyRestaurants.class));
+                break;
+            case R.id.allrestaurants:
+                Toast.makeText(HomeDashBoard.this, "Todos los restaurantes", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this,allRestaurants.class));
+                break;
             case R.id.logout:
-                Log.d(TAG, "click" );
+                Toast.makeText(HomeDashBoard.this, "Cerrando Sesion", Toast.LENGTH_SHORT).show();
                 logout();
+                break;
+            case R.id.uploadPhoto:
+                Toast.makeText(HomeDashBoard.this, "subir foto", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(this,viewMyRestaurant.class));
                 break;
         }
     }

@@ -56,8 +56,8 @@ public class uploadPhotoFood extends AppCompatActivity implements View.OnClickLi
             Bitmap bitmap = (Bitmap) data.getExtras().get("data");
             imageView.setImageBitmap(bitmap);
             filePath = getImageUri(this,bitmap);
-            //String pathPhoto = getPath(uphoto);
-            //String pp = pathPhoto;
+            ///String pathPhoto = getPath(uphoto);
+            ///String pp = pathPhoto;
         }
 
         public Uri getImageUri(Context inContext, Bitmap inImage) {

@@ -14,7 +14,7 @@ public class Session {
 
     //public void setusename(String usename) {
     //    prefs.edit().putString("usename", usename).commit();
-    //}
+    ///}
 
     public void settoken(String token) {
         prefs.edit().putString("token", token).commit();
@@ -26,7 +26,7 @@ public class Session {
     //public String getusename() {
         //String usename = prefs.getString("usename","");
         //return usename;
-    //}
+    ///}
 
     public String gettoken() {
         String token = prefs.getString("token","");

@@ -36,6 +36,12 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     LocationListener locationListener;
     double latitude;
     double longitude;
+
+    double lat;
+    double lng;
+
+    double latitudeMarket;
+    double longitudMarket;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,14 +74,48 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     LatLng latLng = new LatLng(latitude, longitude);
                     if (marker != null){
                         marker.remove();
-                        marker = mMap.addMarker(new MarkerOptions().position(latLng).title(result));
+                        marker = mMap.addMarker(new MarkerOptions().position(latLng).title(result).draggable(true));
                         mMap.setMaxZoomPreference(20);
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
+                        mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+                            @Override
+                            public void onMarkerDragStart(Marker marker) {
+
+                            }
+
+                            @Override
+                            public void onMarkerDrag(Marker marker) {
+                                lat = marker.getPosition().latitude;
+                                lng = marker.getPosition().longitude;
+                            }
+
+                            @Override
+                            public void onMarkerDragEnd(Marker marker) {
+
+                            }
+                        });
                     }
-                    else{
-                        marker = mMap.addMarker(new MarkerOptions().position(latLng).title(result));
+                    else {
+                        marker = mMap.addMarker(new MarkerOptions().position(latLng).title(result).draggable(true));
                         mMap.setMaxZoomPreference(20);
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
+                        mMap.setOnMarkerDragListener(new GoogleMap.OnMarkerDragListener() {
+                            @Override
+                            public void onMarkerDragStart(Marker marker) {
+
+                            }
+
+                            @Override
+                            public void onMarkerDrag(Marker marker) {
+                                lat = marker.getPosition().latitude;
+                                lng = marker.getPosition().longitude;
+                            }
+
+                            @Override
+                            public void onMarkerDragEnd(Marker marker) {
+
+                            }
+                        });
                     }
 
 
@@ -119,8 +159,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.ACCESS_FINE_LOCATION)
                 == PackageManager.PERMISSION_GRANTED) {
-            locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+            String systemmap = getIntent().getStringExtra("_SHOW_LATLONG");
+            if(systemmap != null){
+                String latitude = getIntent().getStringExtra("latitude");
+                String longitude = getIntent().getStringExtra("longitude");
+                double lt = Double.parseDouble(latitude);
+                double lg = Double.parseDouble(longitude);
+                LatLng sydney = new LatLng(lt, lg);
+                mMap.addMarker(new MarkerOptions().position(sydney).title("X"));
+                mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney,17));
+            }else{
+                locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, locationListener);
+                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
+            }
         }
         // Add a marker in Sydney and move the camera
 //        LatLng sydney = new LatLng(-34, 151);
@@ -216,13 +267,35 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         }
     }
     public void secondStep(){
+        //LatLng markerLatitude = marker.getPosition();
+        if(lat == 0.0) {
+            latitudeMarker = latitude;
+            longitudMarker = longitude;
+        }
+        else{
+            latitudeMarker = lat;
+            longitudMarker = lng;
+        }
+
         if (getIntent().getExtras() != null) {
-            String firstStep = getIntent().getStringExtra("firstStep");
-            String secondStep = "'latitude':'"+latitude+"','longitude':'"+longitude+"',";// no creo el string con {}
-            Intent intent = new Intent(this, uploadLogo.class);
-            intent.putExtra("firstStep", firstStep);
-            intent.putExtra("secondStep", secondStep);
-            startActivity(intent);
+            String systemorders = getIntent().getStringExtra("_SYSTEM_MODULE");
+            if(systemorders != null){
+                String firstStepOrder = getIntent().getStringExtra("firstStepOrder");
+                //String secondStepOrder = "{'orders':["+firstStepOrder+"],'latitude':'"+latitude+"','longitude':'"+longitude+"'}";
+                String secondStepOrder = "{'orders':["+firstStepOrder+"],'latitude':'"+latitudeMarker+"','longitude':'"+longitudMarker+"'}";
+                Intent intent = new Intent(this, sendOrderRestaurant.class);
+                intent.putExtra("finalStepOrder", secondStepOrder);
+                startActivity(intent);
+            }
+            else{
+                String firstStep = getIntent().getStringExtra("firstStep");
+                //String secondStep = "'latitude':'"+latitude+"','longitude':'"+longitude+"',";// no creo el string con {}
+                String secondStep = "'latitude':'"+latitudeMarker+"','longitude':'"+longitudMarker+"',";// no creo el string con {}
+                Intent intent = new Intent(this, uploadLogo.class);
+                intent.putExtra("firstStep", firstStep);
+                intent.putExtra("secondStep", secondStep);
+                startActivity(intent);
+            }
         }
     }
 

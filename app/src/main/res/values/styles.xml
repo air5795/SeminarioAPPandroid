@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">#3f51b5</item>
-        <item name="colorPrimaryDark">#202f65</item>
+        <item name="colorPrimaryDark">#9b4844</item>
         <item name="colorAccent">#ff4081</item>
     </style>
     <style name="RatingBar" parent="Theme.AppCompat">

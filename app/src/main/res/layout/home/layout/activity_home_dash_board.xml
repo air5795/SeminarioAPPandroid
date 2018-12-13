@@ -35,7 +35,7 @@
                 android:layout_below="@id/txtdashboard"
                 android:layout_marginTop="6dp"
                 android:text="Xime-Brayan-Ale"
-                android:textColor="#52baff"
+                android:textColor="#fff"
                 android:textSize="14sp" />
 
             <ImageView
@@ -46,7 +46,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_marginEnd="0dp"
                 android:layout_marginBottom="0dp"
-                app:srcCompat="@drawable/splashLogo" />
+                app:srcCompat="@drawable/splashlogo" />
 
         </RelativeLayout>
 

@@ -1,5 +1,6 @@
 package com.example.seminario.seminario;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,6 +40,14 @@ public class allOrdersForRestaurants extends AppCompatActivity {
             }
             callrestapi.postDataVolley("POSTCALL", url, sendObj);
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        _id = getIntent().getStringExtra("idRestaurant");
+        Intent intentorder = new Intent(this, viewMyRestaurant.class);
+        intentorder.putExtra("idRestaurant",_id);
+        startActivity(intentorder);
     }
 
     public void initVolleyCallback(){
@@ -81,3 +90,4 @@ public class allOrdersForRestaurants extends AppCompatActivity {
         };
     }
 }
+

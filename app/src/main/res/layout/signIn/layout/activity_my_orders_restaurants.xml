@@ -3,8 +3,10 @@
 xmlns:app="http://schemas.android.com/apk/res-auto"
 xmlns:tools="http://schemas.android.com/tools"
 android:layout_width="match_parent"
-android:layout_height="match_parent"
-tools:context=".allOrdersForRestaurants">
+android:layout_height="wrap_content"
+android:background="@drawable/background"
+tools:context=".myOrdersRestaurants">
+
 
 <LinearLayout
     android:layout_width="match_parent"
@@ -13,10 +15,9 @@ tools:context=".allOrdersForRestaurants">
     android:orientation="vertical">
 
     <include layout="@layout/toolbar" />
-
     <ListView
 
-        android:id="@+id/listorderforrestaurant"
+        android:id="@+id/myordersuser"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -35,5 +36,4 @@ tools:context=".allOrdersForRestaurants">
     android:gravity="right"
     android:orientation="horizontal">
 </LinearLayout>
-
 </RelativeLayout>

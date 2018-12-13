@@ -90,4 +90,3 @@ public class allOrdersForRestaurants extends AppCompatActivity {
         };
     }
 }
-

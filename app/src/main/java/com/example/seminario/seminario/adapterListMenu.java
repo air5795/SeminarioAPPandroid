@@ -98,7 +98,7 @@ public class adapterListMenu extends BaseAdapter {
                 String _id = datarestaurant.get(position).getId();
                 Intent intent = new Intent(context, viewMyRestaurant.class);
                 intent.putExtra("idRestaurant",_id);
-                context.startActivity(intent);;
+                context.startActivity(intent);
             }
         });*/
 
@@ -136,7 +136,7 @@ public class adapterListMenu extends BaseAdapter {
             public void notifyError(String requestType,VolleyError error) {
                 Log.d(TAG, "Volley requester " + requestType);
                 Log.d(TAG, "Volley JSON post" + "That didn't work!");
-                callrestapi.parseVolleyError(error);
+                    callrestapi.parseVolleyError(error);
             }
         };
     }

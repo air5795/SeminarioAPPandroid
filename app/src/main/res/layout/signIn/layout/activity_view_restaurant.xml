@@ -255,7 +255,7 @@
             android:layout_marginTop="30dp" />
 
         <TextView
-            android:id="@+id/deleteRestaurant"
+            android:id="@+id/orderRestaurant"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

@@ -240,11 +240,11 @@ android:orientation="vertical">
     android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/createMenu"
+        android:id="@+id/viewOrders"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:text="Crear Menu"
+        android:text="Ordenes"
         android:textSize="16dp"
         android:textColor="#3D70E8"
         android:textAlignment="center"

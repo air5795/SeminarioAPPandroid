@@ -30,10 +30,10 @@ public class myOrdersRestaurants extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_orders_restaurants);
         myordersuser = findViewById(R.id.myordersuser);
-        initVolleyCallback();
-        String url = restApi.server+"services/api/view-order-username";
-        callrestapi = new callRestApi(mResultCallback,this);
-        callrestapi.getDataVolley("GETCALL",url);
+            initVolleyCallback();
+            String url = restApi.server+"services/api/view-order-username";
+            callrestapi = new callRestApi(mResultCallback,this);
+            callrestapi.getDataVolley("GETCALL",url);
     }
 
     @Override
@@ -85,4 +85,3 @@ public class myOrdersRestaurants extends AppCompatActivity {
     }
 
 }
-

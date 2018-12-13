@@ -73,8 +73,8 @@ public class viewRestaurant extends AppCompatActivity implements View.OnClickLis
                     String logo = data.getString("logo");
                     String photo = data.getString("photo");
 
-                    latitude = data.getString("logo");
-                    longitude = data.getString("longitude");
+                    latitude = data.getString("latitude");
+                    longitude = data.getString("logitude");
 
                     nameRestaurant.setText(name);
                     nitRestaurant.setText("NIT: "+nit);
@@ -119,8 +119,8 @@ public class viewRestaurant extends AppCompatActivity implements View.OnClickLis
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.createMenu:
-                Intent intent = new Intent(this, createMenu.class);
+            case R.id.orderRestaurant:
+                Intent intent = new Intent(this, orderRestaurant.class);
                 intent.putExtra("idRestaurant",_id);
                 startActivity(intent);
                 break;

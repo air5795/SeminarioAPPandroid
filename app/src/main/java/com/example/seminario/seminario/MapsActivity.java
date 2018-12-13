@@ -40,8 +40,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     double lat;
     double lng;
 
-    double latitudeMarket;
-    double longitudMarket;
+    double latitudeMarker;
+    double longitudMarker;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,7 +68,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 Geocoder geocoder = new Geocoder(getApplicationContext());
                 try {
                     List<Address> addresses =
-                            geocoder.getFromLocation(latitude, longitude, 1);
+                    geocoder.getFromLocation(latitude, longitude, 1);
                     String result = addresses.get(0).getLocality()+":";
                     result += addresses.get(0).getCountryName();
                     LatLng latLng = new LatLng(latitude, longitude);
@@ -85,8 +85,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                             @Override
                             public void onMarkerDrag(Marker marker) {
-                                lat = marker.getPosition().latitude;
-                                lng = marker.getPosition().longitude;
+                                lat     = marker.getPosition().latitude;
+                                lng     = marker.getPosition().longitude;
                             }
 
                             @Override
@@ -95,7 +95,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             }
                         });
                     }
-                    else {
+                    else{
                         marker = mMap.addMarker(new MarkerOptions().position(latLng).title(result).draggable(true));
                         mMap.setMaxZoomPreference(20);
                         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 17));
@@ -107,8 +107,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                             @Override
                             public void onMarkerDrag(Marker marker) {
-                                lat = marker.getPosition().latitude;
-                                lng = marker.getPosition().longitude;
+                                lat     = marker.getPosition().latitude;
+                                lng     = marker.getPosition().longitude;
                             }
 
                             @Override

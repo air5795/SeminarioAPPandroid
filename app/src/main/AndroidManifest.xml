@@ -67,7 +67,12 @@
         <activity android:name=".allMyMenus" />
         <activity android:name=".allRestaurants" />
         <activity android:name=".viewRestaurant" />
-        <activity android:name=".orderMenuRestaurant"></activity>
+        <activity android:name=".orderRestaurant" />
+        <activity android:name=".viewOrdersShopping" />
+        <activity android:name=".myOrdersRestaurants" />
+        <activity android:name=".sendOrderRestaurant" />
+        <activity android:name=".detailOrdersRestaurant" />
+        <activity android:name=".allOrdersForRestaurants"></activity>
     </application>
 
 </manifest>

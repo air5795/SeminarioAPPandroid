@@ -22,7 +22,7 @@ public class viewMyRestaurant extends AppCompatActivity implements View.OnClickL
     private String TAG = "viewMyRestaurant";
     TextView nameRestaurant,nitRestaurant,ownerRestaurant,streetRestaurant,phoneRestaurant;
     ImageView logoImage,imagePhoto;
-    String _id;
+    static String _id;
     inteResults mResultCallback = null;
     callRestApi callrestapi;
 
@@ -41,6 +41,8 @@ public class viewMyRestaurant extends AppCompatActivity implements View.OnClickL
 
         findViewById(R.id.createMenu).setOnClickListener(this);
         findViewById(R.id.viewmenu).setOnClickListener(this);
+        findViewById(R.id.viewOrders).setOnClickListener(this);
+        findViewById(R.id.deleteRestaurant).setOnClickListener(this);
 
         if (getIntent().getExtras() != null) {
             _id = getIntent().getStringExtra("idRestaurant");
@@ -55,6 +57,10 @@ public class viewMyRestaurant extends AppCompatActivity implements View.OnClickL
             }
             callrestapi.postDataVolley("POSTCALL", url, sendObj);
         }
+    }
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,allMyRestaurants.class));
     }
 
     public void initVolleyCallback(){
@@ -115,6 +121,41 @@ public class viewMyRestaurant extends AppCompatActivity implements View.OnClickL
         };
     }
 
+    public void deleteRestaurant(){
+        initVolleyCallbackDelete();
+        String url = restApi.server+"services/api/delete-restaurant";
+        callrestapi = new callRestApi(mResultCallback,this);
+        JSONObject sendObj = null;
+        try {
+            sendObj = new JSONObject("{'_id':'"+_id+"'}");
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        callrestapi.postDataVolley("POSTCALL", url, sendObj);
+    }
+
+    public void initVolleyCallbackDelete(){
+        callrestapi = new callRestApi(mResultCallback,this);
+        mResultCallback = new inteResults() {
+            @Override
+            public void notifySuccess(String requestType,JSONObject response) {
+                Log.d(TAG, "Volley requester " + requestType);
+                Log.d(TAG, "Volley JSON post" + response);
+                //finish();
+                //startActivity(getIntent());
+                Intent intentmenu = new Intent(viewMyRestaurant.this, allMyRestaurants.class);
+                //intentmenu.putExtra("idRestaurant",_id);
+                startActivity(intentmenu);
+            }
+
+            @Override
+            public void notifyError(String requestType,VolleyError error) {
+                Log.d(TAG, "Volley requester " + requestType);
+                Log.d(TAG, "Volley JSON post" + "That didn't work!");
+                callrestapi.parseVolleyError(error);
+            }
+        };
+    }
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -126,7 +167,16 @@ public class viewMyRestaurant extends AppCompatActivity implements View.OnClickL
             case R.id.viewmenu:
                 Intent intentmenu = new Intent(this, allMyMenus.class);
                 intentmenu.putExtra("idRestaurant",_id);
+                _id = _id;
                 startActivity(intentmenu);
+                break;
+            case R.id.viewOrders:
+                Intent intentorder = new Intent(this, allOrdersForRestaurants.class);
+                intentorder.putExtra("idRestaurant",_id);
+                startActivity(intentorder);
+                break;
+            case R.id.deleteRestaurant:
+                deleteRestaurant();
                 break;
         }
     }

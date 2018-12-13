@@ -22,27 +22,31 @@
 
             <TextView
                 android:id="@+id/txtdashboard"
-                android:text="Bienvenido"
-                android:textSize="22sp"
-                android:textColor="#ffffff"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:text="Seminario de Sistemas"
+                android:textColor="#ffffff"
+                android:textSize="22sp" />
+
             <TextView
                 android:id="@+id/user"
-                android:layout_marginTop="6dp"
-                android:layout_below="@id/txtdashboard"
-                android:text="Usuario usuario"
-                android:textSize="14sp"
-                android:textColor="#52baff"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            
+                android:layout_height="wrap_content"
+                android:layout_below="@id/txtdashboard"
+                android:layout_marginTop="6dp"
+                android:text="Xime-Brayan-Ale"
+                android:textColor="#52baff"
+                android:textSize="14sp" />
+
             <ImageView
-                android:layout_alignParentRight="true"
-                android:src="@drawable/user"
-                android:layout_width="62dp"
-                android:layout_height="62dp"
-                />
+                android:id="@+id/imageView3"
+                android:layout_width="105dp"
+                android:layout_height="48dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                app:srcCompat="@drawable/splashLogo" />
 
         </RelativeLayout>
 

@@ -7,11 +7,61 @@
     android:background="@drawable/backsplash"
     tools:context=".splashActivity">
 
-    <ImageView
-        android:layout_width="380dp"
-        android:layout_height="280dp"
-        android:layout_centerInParent="true"
-        android:src="@drawable/splashlogo"
-        />
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="77dp"
+        android:layout_marginBottom="270dp"
+        android:text="PROYECTO DE SEMINARIO DE SISTEMAS"
+        android:textAlignment="center"
+        android:textColor="@android:color/black" />
 
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="299dp"
+        android:layout_height="224dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="45dp"
+        android:layout_marginTop="29dp"
+        app:srcCompat="@drawable/splashLogo" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="72dp"
+        android:layout_marginBottom="239dp"
+        android:text="Ximena"
+        android:textAlignment="center"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="73dp"
+        android:layout_marginBottom="187dp"
+        android:text="Alejandro"
+        android:textAlignment="center"
+        android:textColor="@android:color/black" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="235dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="74dp"
+        android:layout_marginBottom="216dp"
+        android:text="Brayan "
+        android:textAlignment="center"
+        android:textColor="@android:color/black" />
 </RelativeLayout>

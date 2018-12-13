@@ -36,6 +36,11 @@ public class myOrdersRestaurants extends AppCompatActivity {
         callrestapi.getDataVolley("GETCALL",url);
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,HomeDashBoard.class));
+    }
+
     public void initVolleyCallback(){
         callrestapi = new callRestApi(mResultCallback,this);
         mResultCallback = new inteResults() {
@@ -80,3 +85,4 @@ public class myOrdersRestaurants extends AppCompatActivity {
     }
 
 }
+

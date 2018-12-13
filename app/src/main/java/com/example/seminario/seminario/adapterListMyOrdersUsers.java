@@ -22,13 +22,13 @@ import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
 public class adapterListMyOrdersUsers extends BaseAdapter {
-
     private String TAG = "adapterlistmyorderrestrs";
     private static LayoutInflater inflater = null;
     Context context;
@@ -38,7 +38,7 @@ public class adapterListMyOrdersUsers extends BaseAdapter {
     callRestApi callrestapi;
 
     static Cart shoppingcart;
-    TextView title,text_location,text_menu1,totalmoney, ordercancel;
+    TextView title,text_location,text_menu1,totalmoney,ordercancel,maprest;
     Button viewshoppingcart,reset,sendOrder;
     Boolean exist;
 
@@ -60,6 +60,7 @@ public class adapterListMyOrdersUsers extends BaseAdapter {
         text_menu1 =  view.findViewById(R.id.text_menu1);
         totalmoney =  view.findViewById(R.id.totalmoney);
         ordercancel =  view.findViewById(R.id.updateOrderCancel);
+        maprest = view.findViewById(R.id.goMap);
         ImageView img = view.findViewById(R.id.image);
         title.setText(this.menurestaurant.get(position).getNameRestaurant());
         text_location.setText(this.menurestaurant.get(position).getAddressRestaurant());
@@ -114,6 +115,18 @@ public class adapterListMyOrdersUsers extends BaseAdapter {
             }
         });
 
+        maprest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String latitude = menurestaurant.get(position).getLatitude();
+                String longitude = menurestaurant.get(position).getLongitude();
+                Intent intentmap = new Intent(context, MapsActivity.class);
+                intentmap.putExtra("_SHOW_LATLONG","true");
+                intentmap.putExtra("latitude",latitude);
+                intentmap.putExtra("longitude",longitude);
+                context.startActivity(intentmap);
+            }
+        });
         return view;
     }
     @Override

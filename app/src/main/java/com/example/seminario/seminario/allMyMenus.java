@@ -28,10 +28,6 @@ public class allMyMenus extends AppCompatActivity {
         setContentView(R.layout.activity_all_my_menus);
 
         listMyMenu = findViewById(R.id.listMyMenu);
-        ///initVolleyCallback();
-        ///String url = restApi.server+"services/api/show-menu";
-        ///callrestapi = new callRestApi(mResultCallback,this);
-        ///callrestapi.getDataVolley("GETCALL",url);
         if (getIntent().getExtras() != null) {
             initVolleyCallback();
             _id = getIntent().getStringExtra("idRestaurant");
@@ -46,7 +42,7 @@ public class allMyMenus extends AppCompatActivity {
             callrestapi.postDataVolley("POSTCALL", url, sendObj);
         }
     }
-    //hola
+
     public void initVolleyCallback(){
         callrestapi = new callRestApi(mResultCallback,this);
         mResultCallback = new inteResults() {

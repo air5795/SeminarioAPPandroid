@@ -22,7 +22,8 @@ public class viewRestaurant extends AppCompatActivity implements View.OnClickLis
     String _id;
     inteResults mResultCallback = null;
     callRestApi callrestapi;
-
+    String latitude;
+    String longitude;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +37,8 @@ public class viewRestaurant extends AppCompatActivity implements View.OnClickLis
         logoImage = findViewById(R.id.banar1);
         imagePhoto = findViewById(R.id.image);
 
-        findViewById(R.id.createMenu).setOnClickListener(this);
+        findViewById(R.id.orderRestaurant).setOnClickListener(this);
+        findViewById(R.id.viewLatLong).setOnClickListener(this);
 
         if (getIntent().getExtras() != null) {
             _id = getIntent().getStringExtra("idRestaurant");
@@ -70,6 +72,9 @@ public class viewRestaurant extends AppCompatActivity implements View.OnClickLis
                     String phone = data.getString("phone");
                     String logo = data.getString("logo");
                     String photo = data.getString("photo");
+
+                    latitude = data.getString("logo");
+                    longitude = data.getString("longitude");
 
                     nameRestaurant.setText(name);
                     nitRestaurant.setText("NIT: "+nit);
@@ -118,6 +123,13 @@ public class viewRestaurant extends AppCompatActivity implements View.OnClickLis
                 Intent intent = new Intent(this, createMenu.class);
                 intent.putExtra("idRestaurant",_id);
                 startActivity(intent);
+                break;
+            case R.id.viewLatLong:
+                Intent intentmap = new Intent(this, MapsActivity.class);
+                intentmap.putExtra("_SHOW_LATLONG","true");
+                intentmap.putExtra("latitude",latitude);
+                intentmap.putExtra("longitude",longitude);
+                startActivity(intentmap);
                 break;
         }
     }
